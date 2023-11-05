@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StarCompany Test</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+
+  <body data-current-step="0">
+    <div class="container">
+      <div class="header">
+        <div class="logo">
+          <img src="image/logo.png" alt="logo" width="250px" />
+        </div>
+        <form action="" class="log_form" novalidate>
+          <div class="log-form-input">
+            <input type="email" name="email" id="email" placeholder="Email" />
+            <div class="warning">
+              <span>Please enter a valid email address</span>
+            </div>
+          </div>
+          <div class="log-form-input">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+            <p><a href="/forgot">Forgot your password?</a></p>
+          </div>
+
+          <button class="loginbutton" type="submit">Log In</button>
+        </form>
+      </div>
+      <div class="page">
+        <div class="title">
+          <h1>
+            <span>STARCOMPANY DESIGNS, MANUFACTURES AND </span>Launches Advanced
+            Rockets and Spacecrafts
+          </h1>
+        </div>
+        <div class="reg_form">
+          <form id="regForm" action="">
+            <div class="reg-form-container">
+              <div class="tab active">
+                <div class="tab-item select-step">
+                  <label class="tab-label">Who are you?</label>
+
+                  <select
+                    name="gender"
+                    class="step-item"
+                    id="profession-select"
+                  >
+                    <option value="">--Please choose an option--</option>
+                    <option value="Engineer">Engineer</option>
+                    <option value="Business Development Executive">
+                      Business Development Executive
+                    </option>
+                    <option value="Office Manager/PA">Office Manager/PA</option>
+                    <option value="Accountant">Accountant</option>
+                    <option value="VR Designer">VR Designer</option>
+                  </select>
+
+                  <ul class="custom-select">
+                    <li class="selected-option" data-value="">
+                      --Please choose an option--
+                    </li>
+                    <li data-value="Engineer">Engineer</li>
+                    <li data-value="Business Development Executive">
+                      Business Development Executive
+                    </li>
+                    <li data-value="Office Manager/PA">Office Manager/PA</li>
+                    <li data-value="Accountant">Accountant</li>
+                    <li data-value="VR Designer">VR Designer</li>
+                  </ul>
+                </div>
+                <div class="step-error"></div>
+              </div>
+              <div class="tab">
+                <div class="tab-item select-step">
+                  <label class="tab-label" for="age-select"
+                    >What is your age?</label
+                  >
+
+                  <select name="age" class="step-item" id="age-select">
+                    <option value="">--Please choose an option--</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                  </select>
+
+                  <ul class="custom-select">
+                    <li class="selected-option" data-value="">
+                      --Please choose an option--
+                    </li>
+                    <li data-value="18">18</li>
+                    <li data-value="19">19</li>
+                    <li data-value="20">20</li>
+                    <li data-value="21">21</li>
+                    <li data-value="22">22</li>
+                    <li data-value="23">23</li>
+                    <li data-value="24">24</li>
+                    <li data-value="25">25</li>
+                    <li data-value="26">26</li>
+                    <li data-value="27">27</li>
+                  </ul>
+                </div>
+                <div class="step-error"></div>
+              </div>
+
+              <div class="tab">
+                <div class="tab-item">
+                  <label class="tab-label" for="loc-select">I am from</label>
+                  <input
+                    name="location"
+                    class="step-item"
+                    id="loc-select"
+                    type="text"
+                  />
+                  <p>
+                    E.g.: New Roads or 70760<br />We don’t use postal addresses
+                    to contact members directly!
+                  </p>
+                </div>
+                <div class="step-error"></div>
+              </div>
+
+              <div class="tab">
+                <div class="tab-item">
+                  <label class="tab-label" for="email-input"
+                    >Your email adress</label
+                  >
+                  <input
+                    name="email"
+                    class="step-item"
+                    id="email-input"
+                    type="email"
+                  />
+                </div>
+                <div class="step-error"></div>
+              </div>
+
+              <div class="tab">
+                <div class="tab-item">
+                  <label class="tab-label" for="password-input">Password</label>
+                  <input
+                    name="password"
+                    class="step-item"
+                    id="password-input"
+                    type="password"
+                  />
+                  <p>
+                    By clicking the button above you agree to our
+                    <a href="/">Terms of Use</a> and
+                    <a href="/">Privacy Policy</a> including use of cookies and
+                    to receive newsletters, account updates and offers sent by
+                    StarCompany.
+                  </p>
+                </div>
+                <div class="step-error"></div>
+              </div>
+            </div>
+            <div class="action-block">
+              <button type="button" id="prevBtn"></button>
+              <button type="button" id="nextBtn">Next Step</button>
+            </div>
+
+            <div class="action-step">
+              <span class="step active"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+      <script src="assets/script.js"></script>
+    </div>
+  </body>
+</html>
