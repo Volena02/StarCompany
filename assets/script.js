@@ -31,43 +31,41 @@ function showTab(n) {
 function nextPrev(n) {
   // This function will figure out which tab to display
   let x = document.querySelectorAll(".tab");
-
-  //validtion
   const errorField = x[currentTab].querySelector(".step-error");
   const currentField = x[currentTab].querySelector(".step-item")
   const stepName = currentField.getAttribute("name");
-
-  if (stepName === "email") {
-
-    const emailValid = EMAIL_REGEXP.test(currentField.value) ? true : false;
-    if (!emailValid) {
+  getData().then(() => {
+    //validtion
+    if (stepName === "email") {
+      const emailValid = EMAIL_REGEXP.test(currentField.value) ? true : false;
+      if (!emailValid) {
+        errorField.innerText = errorsData.errors[stepName];
+        errorField.classList.add("active");
+        return;
+      }
+      errorField.classList.remove("active");
+    }
+    if (!currentField.value.length) {
       errorField.innerText = errorsData.errors[stepName];
       errorField.classList.add("active");
       return;
-    } else {
-      errorField.classList.remove("active");
     }
-  }
-  if (!currentField.value.length) {
-    errorField.innerText = errorsData.errors[stepName];
-    errorField.classList.add("active");
-    return;
-  } else {
     document.querySelector(".tab.active").classList.remove("active");
     errorField.classList.remove("active");
-  }
-  // Hide the current tab:
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
-  document.querySelector('body').dataset.currentStep = currentTab;
 
-  if (currentTab >= x.length) {
-    //submitted form for a correct step
-    regForm.submit();
-    return false;
-  }
-  // Otherwise, display the correct step:
-  showTab(currentTab);
+    // Hide the current tab:
+    // Increase or decrease the current tab by 1:
+    currentTab = currentTab + n;
+    document.querySelector('body').dataset.currentStep = currentTab;
+
+    if (currentTab >= x.length) {
+      //submitted form for a correct step
+      regForm.submit();
+      return false;
+    }
+    // Otherwise, display the correct step:
+    showTab(currentTab);
+  });
 }
 
 //change step regform 
@@ -82,13 +80,7 @@ function validateLoginForm(e) {
   const inputEmailValue = document.querySelector("#email").value;
   const emailValid = EMAIL_REGEXP.test(inputEmailValue) ? true : false;
   const emailWarning = document.querySelector(".warning");
-
-  if (emailValid) {
-    form.submit();
-  } else {
-    emailWarning.classList.add("warning-active");
-  }
-
+  emailValid ? form.submit() : emailWarning.classList.add("warning-active");
 }
 
 form.addEventListener("submit", validateLoginForm);
@@ -107,7 +99,7 @@ async function getData() {
   const response = await fetch("https://run.mocky.io/v3/f6ca495a-0a08-40de-9889-e73d49d011d2");
   errorsData = await response.json();
 }
-getData();
+
 
 // Add / remove the "active" class of all steps nav...
 function fixStepIndicator(n) {
